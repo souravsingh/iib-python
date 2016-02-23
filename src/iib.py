@@ -2,6 +2,7 @@ import urllib2
 import json
 import os
 import getpass
+import webbrowser
 
 url = 'http://www.reddit.com/r/InternetisBeautiful/top.json' 
 
@@ -12,5 +13,14 @@ def main():
 	
 	data = json.load(obj)
 
-	
-	count = 0
+	for i in data["data"]["children"]:
+
+	  interneturl = i["data"]["url"]
+	  try:
+  
+	    print interneturl
+	    
+	    os.system("start \"\" "+interneturl)
+	   
+if __name__ == "__main__":
+	main()
